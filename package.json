@@ -1,7 +1,6 @@
 {
   "name": "orm-sequelize",
   "version": "1.0.0",
-  "description": "",
   "main": "./api/index.js",
   "scripts": {
     "lint": "eslint api --fix",
@@ -21,5 +20,6 @@
   "devDependencies": {
     "eslint": "^7.4.0",
     "nodemon": "^2.0.3"
-  }
+  },
+  "description": ""
 }

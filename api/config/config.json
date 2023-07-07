@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "alura",
-    "password": "admin123",
+    "username": "root",
+    "password": "t0t0dilE*d3sTruid0r",
     "database": "escola_ingles",
     "host": "127.0.0.1",
     "dialect": "mysql",
