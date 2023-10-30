@@ -11,3 +11,4 @@ router
   .post('/turmas/:id/restaura', TurmaController.restauraTurma)
 
 module.exports = router
+

@@ -3,15 +3,24 @@ module.exports = (sequelize, DataTypes) => {
   const Pessoas = sequelize.define('Pessoas', {
     nome: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
         funcaoValidadora: function (dado){
+          if (!/^[\sa-zA-ZÀ-ÿ]+$/.test(dado)) {
+            
+            throw new Error ('O campo deve conter somente letras e acentos.')
+          }
           if (dado.length < 3) throw new Error('O campo nome deve ter mais que 3 caracteres')
         }
       }
     },
-    ativo: DataTypes.BOOLEAN,
+    ativo: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
     email: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
         isEmail: {
           args: true,
@@ -19,7 +28,18 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    role: DataTypes.STRING
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        funcaoValidadora: function (dado){
+          
+          if (dado !== 'estudante' && dado !== 'docente') {
+            throw new Error('O campo aceita apenas o valores docente e estudante')
+          }
+        }
+      }
+    }
   }, {
     paranoid: true,
     defaultScope: {
